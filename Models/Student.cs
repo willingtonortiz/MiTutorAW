@@ -1,14 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiTutor.Models
 {
-    public class Student : Person
+    public class Student
     {
-        public List<Subject> FavoriteSubjects {get; set;}
-        public List<Qualification> StudentQualification {get; set;}
+        [Key]
+        [ForeignKey("PersonId")]
+        public int StudentId { get; set; }
+        public List<Subject> Subjects { get; set; }
         public int Points { get; set; }
-        public Student() : base() { }
 
+
+        public Person Person { get; set; }
     }
 }

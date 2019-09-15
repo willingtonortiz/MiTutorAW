@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MiTutor.Models
 {
-    public class TutoringSession: Tutoring 
+    public class TutoringSession : TutoringOffer
     {
-        public List<Student> Students {get; set;}
-        public List<Qualification> Qualifications {get; set; }
-        public TutoringSession() : base() { }
-
+        // [Key]
+        // public int TutoringSessionId { get; set; }
+        public List<Student> Students { get; set; }
+        public List<Qualification> Qualifications { get; set; }
     }
 }
