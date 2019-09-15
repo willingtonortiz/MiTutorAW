@@ -8,7 +8,7 @@ namespace MiTutor.Models
     public class Tutor
     {
         [Key]
-        [ForeignKey("PersonId")]
+        [ForeignKey("Person")]
         public int TutorId { get; set; }
         public int Points { get; set; }
         public string Description { get; set; }

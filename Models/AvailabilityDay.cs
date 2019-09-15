@@ -10,9 +10,10 @@ namespace MiTutor.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
+        
+        public int AvailabilityId { get; set; }
 
         [ForeignKey("AvailabilityId")]
-        public int AvailabilityId { get; set; }
         public Availability Availability { get; set; }
     }
 }

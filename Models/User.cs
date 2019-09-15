@@ -7,7 +7,7 @@ namespace MiTutor.Models
     public class User
     {
         [Key]
-        [ForeignKey("PersonId")]
+        [ForeignKey("Person")]
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

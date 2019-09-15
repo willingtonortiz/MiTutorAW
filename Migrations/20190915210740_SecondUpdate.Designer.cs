@@ -3,15 +3,17 @@ using System;
 using MiTutor.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace MiTutor.Migrations
 {
     [DbContext(typeof(MiTutorContext))]
-    partial class MiTutorContextModelSnapshot : ModelSnapshot
+    [Migration("20190915210740_SecondUpdate")]
+    partial class SecondUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

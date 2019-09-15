@@ -14,18 +14,24 @@ namespace MiTutor.Models
 
 
         public RollType AdresserRole { get; set; }
-        [ForeignKey("AdresserId")]
+
+
         public int AdresserId { get; set; }
+
+        [ForeignKey("AdresserId")]
         public Person Adresser { get; set; }
 
 
-        [ForeignKey("AdresseeId")]
         public int AdresseeId { get; set; }
+
+        [ForeignKey("AdresseeId")]
         public Person Adressee { get; set; }
 
 
-        [ForeignKey("TutoringSession")]
+       
         public int TutoringSessionId { get; set; }
+
+        [ForeignKey("TutoringSessionId")]
         public TutoringSession TutoringSession { get; set; }
     }
 }

@@ -22,19 +22,31 @@ namespace MiTutor.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			// modelBuilder.Entity<Availability>().ToTable("Availability");
-			// modelBuilder.Entity<AvailabilityDay>().ToTable("AvailabilityDay");
-			// modelBuilder.Entity<Person>().ToTable("Person");
-			// modelBuilder.Entity<Qualification>().ToTable("Qualification");
-			// modelBuilder.Entity<Student>().ToTable("Student");
-			// modelBuilder.Entity<Subject>().ToTable("Subject");
-			// modelBuilder.Entity<Topic>().ToTable("Topic");
-			// modelBuilder.Entity<Tutor>().ToTable("Tutor");
-			// modelBuilder.Entity<Tutoring>().ToTable("Tutoring");
-			// modelBuilder.Entity<TutoringOffer>().ToTable("TutoringOffer");
-			// modelBuilder.Entity<TutoringSession>().ToTable("TutoringSession");
-			// modelBuilder.Entity<University>().ToTable("University");
-			// modelBuilder.Entity<User>().ToTable("User");
+			modelBuilder.Entity<Qualification>()
+                    .HasOne(q => q.Adresser)
+                    .WithMany(a => a.QualificationsReceived).OnDelete(DeleteBehavior.SetNull)
+                    .HasForeignKey(q => q.AdresserId).IsRequired();
+
+      		modelBuilder.Entity<Qualification>()
+                     .HasOne(q => q.Adressee)
+                    .WithMany(a => a.QualificationsGiven).OnDelete(DeleteBehavior.SetNull)
+                    .HasForeignKey(q => q.AdresseeId).IsRequired();
+
+
+			 modelBuilder.Entity<Availability>().ToTable("Availability");
+			 modelBuilder.Entity<AvailabilityDay>().ToTable("AvailabilityDay");
+			 modelBuilder.Entity<Person>().ToTable("Person");
+			 modelBuilder.Entity<Qualification>().ToTable("Qualification");
+			 modelBuilder.Entity<Student>().ToTable("Student");
+			 modelBuilder.Entity<Subject>().ToTable("Subject");
+			 modelBuilder.Entity<Topic>().ToTable("Topic");
+			 modelBuilder.Entity<Tutor>().ToTable("Tutor");
+			 modelBuilder.Entity<TutoringOffer>().ToTable("TutoringOffer");
+			 modelBuilder.Entity<TutoringSession>().ToTable("TutoringSession");
+			 modelBuilder.Entity<University>().ToTable("University");
+			 modelBuilder.Entity<User>().ToTable("User");
 		}
 	}
+	
+
 }

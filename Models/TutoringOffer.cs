@@ -19,8 +19,10 @@ namespace MiTutor.Models
         public string Description { get; set; }
 
 
-        [ForeignKey("TutorId")]
+       
         public int TutorId { get; set; }
+
+        [ForeignKey("TutorId")]
         public Tutor Tutor { get; set; }
     }
 }

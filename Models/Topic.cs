@@ -12,8 +12,10 @@ namespace MiTutor.Models
         public string Name { get; set; }
 
 
-        [ForeignKey("SubjectId")]
+    
         public int SubjectId { get; set; }
+
+        [ForeignKey("SubjectId")]
         public Subject Subject { get; set; }
     }
 }

@@ -8,11 +8,10 @@ namespace MiTutor.Models
     public class Student
     {
         [Key]
-        [ForeignKey("PersonId")]
+        [ForeignKey("Person")]
         public int StudentId { get; set; }
         public List<Subject> Subjects { get; set; }
         public int Points { get; set; }
-
 
         public Person Person { get; set; }
     }
