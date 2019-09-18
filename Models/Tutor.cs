@@ -18,7 +18,7 @@ namespace MiTutor.Models
 
         public List<TutoringOffer> TutoringOffers { get; set; }
 
-        public List<Subject> Subjects { get; set; }
+        public List<TutorSubject> TutorSubjects { get; set; }
 
         public Availability Availability { get; set; }
 

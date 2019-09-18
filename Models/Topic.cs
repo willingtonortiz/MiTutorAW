@@ -10,12 +10,12 @@ namespace MiTutor.Models
         [Key]
         public int TopicId { get; set; }
         public string Name { get; set; }
-
-
     
         public int SubjectId { get; set; }
 
         [ForeignKey("SubjectId")]
         public Subject Subject { get; set; }
+        public List<TopicTutoringOffer> TopicTutoringOffers {get; set;}
+        public List<TopicTutoringSession> TopicTutoringSessions { get; set; }
     }
 }

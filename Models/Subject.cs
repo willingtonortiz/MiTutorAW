@@ -9,9 +9,9 @@ namespace MiTutor.Models
         [Key]
         public int SubjectId { get; set; }
         public string Name { get; set; }
-
-
-
+        public List<Tutor> Tutors { get; set; }
         public List<Topic> Topics { get; set; }
+        public List<StudentSubject> StudentSubjects { get; set; }
+        public List<TutorSubject> TutorSubjects { get; set; }
     }
 }

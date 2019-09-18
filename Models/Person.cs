@@ -12,9 +12,6 @@ namespace MiTutor.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public int Semester { get; set; }
-
-
-       
         public int UniversityId { get; set; }
         
         [ForeignKey("UniversityId")]

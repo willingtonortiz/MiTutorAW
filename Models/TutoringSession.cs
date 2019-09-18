@@ -8,7 +8,9 @@ namespace MiTutor.Models
     {
         // [Key]
         // public int TutoringSessionId { get; set; }
-        public List<Student> Students { get; set; }
         public List<Qualification> Qualifications { get; set; }
+        public List<StudentTutoringSession> StudentTutoringSessions { get; set; }
+        public List<TopicTutoringSession> TopicTutoringSessions { get; set; }
+    
     }
 }

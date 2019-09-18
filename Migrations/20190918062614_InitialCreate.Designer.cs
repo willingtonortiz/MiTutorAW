@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MiTutor.Migrations
 {
     [DbContext(typeof(MiTutorContext))]
-    [Migration("20190915210740_SecondUpdate")]
-    partial class SecondUpdate
+    [Migration("20190918062614_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -110,13 +110,35 @@ namespace MiTutor.Migrations
 
                     b.Property<int>("Points");
 
-                    b.Property<int?>("TutoringSessionTutoringId");
-
                     b.HasKey("StudentId");
 
-                    b.HasIndex("TutoringSessionTutoringId");
-
                     b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("MiTutor.Models.StudentSubject", b =>
+                {
+                    b.Property<int>("StudentId");
+
+                    b.Property<int>("SubjectId");
+
+                    b.HasKey("StudentId", "SubjectId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("StudentSubject");
+                });
+
+            modelBuilder.Entity("MiTutor.Models.StudentTutoringSession", b =>
+                {
+                    b.Property<int>("StudentId");
+
+                    b.Property<int>("TutoringSessionId");
+
+                    b.HasKey("StudentId", "TutoringSessionId");
+
+                    b.HasIndex("TutoringSessionId");
+
+                    b.ToTable("StudentTutoringSession");
                 });
 
             modelBuilder.Entity("MiTutor.Models.Subject", b =>
@@ -126,15 +148,7 @@ namespace MiTutor.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int?>("StudentId");
-
-                    b.Property<int?>("TutorId");
-
                     b.HasKey("SubjectId");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("TutorId");
 
                     b.ToTable("Subject");
                 });
@@ -148,15 +162,37 @@ namespace MiTutor.Migrations
 
                     b.Property<int>("SubjectId");
 
-                    b.Property<int?>("TutoringOfferTutoringId");
-
                     b.HasKey("TopicId");
 
                     b.HasIndex("SubjectId");
 
-                    b.HasIndex("TutoringOfferTutoringId");
-
                     b.ToTable("Topic");
+                });
+
+            modelBuilder.Entity("MiTutor.Models.TopicTutoringOffer", b =>
+                {
+                    b.Property<int>("TopicId");
+
+                    b.Property<int>("TutoringOfferId");
+
+                    b.HasKey("TopicId", "TutoringOfferId");
+
+                    b.HasIndex("TutoringOfferId");
+
+                    b.ToTable("TopicTutoringOffer");
+                });
+
+            modelBuilder.Entity("MiTutor.Models.TopicTutoringSession", b =>
+                {
+                    b.Property<int>("TopicId");
+
+                    b.Property<int>("TutoringSessionId");
+
+                    b.HasKey("TopicId", "TutoringSessionId");
+
+                    b.HasIndex("TutoringSessionId");
+
+                    b.ToTable("TopicTutoringSession");
                 });
 
             modelBuilder.Entity("MiTutor.Models.Tutor", b =>
@@ -167,9 +203,26 @@ namespace MiTutor.Migrations
 
                     b.Property<int>("Points");
 
+                    b.Property<int?>("SubjectId");
+
                     b.HasKey("TutorId");
 
+                    b.HasIndex("SubjectId");
+
                     b.ToTable("Tutor");
+                });
+
+            modelBuilder.Entity("MiTutor.Models.TutorSubject", b =>
+                {
+                    b.Property<int>("TutorId");
+
+                    b.Property<int>("SubjectId");
+
+                    b.HasKey("TutorId", "SubjectId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("TutorSubject");
                 });
 
             modelBuilder.Entity("MiTutor.Models.TutoringOffer", b =>
@@ -291,21 +344,32 @@ namespace MiTutor.Migrations
                         .WithOne("Student")
                         .HasForeignKey("MiTutor.Models.Student", "StudentId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MiTutor.Models.TutoringSession")
-                        .WithMany("Students")
-                        .HasForeignKey("TutoringSessionTutoringId");
                 });
 
-            modelBuilder.Entity("MiTutor.Models.Subject", b =>
+            modelBuilder.Entity("MiTutor.Models.StudentSubject", b =>
                 {
-                    b.HasOne("MiTutor.Models.Student")
-                        .WithMany("Subjects")
-                        .HasForeignKey("StudentId");
+                    b.HasOne("MiTutor.Models.Student", "Student")
+                        .WithMany("StudentSubjects")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("MiTutor.Models.Tutor")
-                        .WithMany("Subjects")
-                        .HasForeignKey("TutorId");
+                    b.HasOne("MiTutor.Models.Subject", "Subject")
+                        .WithMany("StudentSubjects")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MiTutor.Models.StudentTutoringSession", b =>
+                {
+                    b.HasOne("MiTutor.Models.Student", "Student")
+                        .WithMany("StudentTutoringSessions")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MiTutor.Models.TutoringSession", "TutoringSession")
+                        .WithMany("StudentTutoringSessions")
+                        .HasForeignKey("TutoringSessionId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("MiTutor.Models.Topic", b =>
@@ -314,17 +378,56 @@ namespace MiTutor.Migrations
                         .WithMany("Topics")
                         .HasForeignKey("SubjectId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.HasOne("MiTutor.Models.TutoringOffer")
-                        .WithMany("Topics")
-                        .HasForeignKey("TutoringOfferTutoringId");
+            modelBuilder.Entity("MiTutor.Models.TopicTutoringOffer", b =>
+                {
+                    b.HasOne("MiTutor.Models.Topic", "Topic")
+                        .WithMany("TopicTutoringOffers")
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MiTutor.Models.TutoringOffer", "TutoringOffer")
+                        .WithMany("TopicTutoringOffers")
+                        .HasForeignKey("TutoringOfferId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MiTutor.Models.TopicTutoringSession", b =>
+                {
+                    b.HasOne("MiTutor.Models.Topic", "Topic")
+                        .WithMany("TopicTutoringSessions")
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MiTutor.Models.TutoringSession", "TutoringSession")
+                        .WithMany("TopicTutoringSessions")
+                        .HasForeignKey("TutoringSessionId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("MiTutor.Models.Tutor", b =>
                 {
+                    b.HasOne("MiTutor.Models.Subject")
+                        .WithMany("Tutors")
+                        .HasForeignKey("SubjectId");
+
                     b.HasOne("MiTutor.Models.Person", "Person")
                         .WithOne("Tutor")
                         .HasForeignKey("MiTutor.Models.Tutor", "TutorId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("MiTutor.Models.TutorSubject", b =>
+                {
+                    b.HasOne("MiTutor.Models.Subject", "Subject")
+                        .WithMany("TutorSubjects")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("MiTutor.Models.Tutor", "Tutor")
+                        .WithMany("TutorSubjects")
+                        .HasForeignKey("TutorId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
