@@ -5,16 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiTutor.Models
 {
-    public class Availability
-    {
-        [Key]
-        public int AvailabilityId { get; set; }
-      
-        public int TutorId { get; set; }
+	public class Availability
+	{
+		[Key]
+		public int AvailabilityId { get; set; }
 
-        [ForeignKey("TutorId")]
-        public Tutor Tutor { get; set; }
+		public int TutorId { get; set; }
 
-        public List<AvailabilityDay> AvailabilityDays { get; set; }
-    }
+		[ForeignKey("TutorId")]
+		public Tutor Tutor { get; set; }
+
+		public List<AvailabilityDay> AvailabilityDays { get; set; }
+	}
 }
