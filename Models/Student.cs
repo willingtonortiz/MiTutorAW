@@ -10,9 +10,11 @@ namespace MiTutor.Models
         [Key]
         [ForeignKey("Person")]
         public int StudentId { get; set; }
-        public List<Subject> Subjects { get; set; }
         public int Points { get; set; }
-
         public Person Person { get; set; }
+        public List<StudentSubject> StudentSubjects { get; set; }
+        public List<StudentTutoringSession> StudentTutoringSessions { get; set; }
+
+
     }
 }

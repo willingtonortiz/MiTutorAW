@@ -15,14 +15,12 @@ namespace MiTutor.Models
 
 
         public Subject Subject { get; set; }
-        public List<Topic> Topics { get; set; }
+        public List<TopicTutoringOffer> TopicTutoringOffers { get; set; }
         public string Description { get; set; }
-
-
-       
         public int TutorId { get; set; }
 
         [ForeignKey("TutorId")]
         public Tutor Tutor { get; set; }
+
     }
 }

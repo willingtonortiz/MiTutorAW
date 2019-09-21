@@ -1,0 +1,70 @@
+.register-container{
+    padding: 2.5em;
+}
+
+.register-container  header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.register-container .field-login button{
+    color: var(--white);
+    background: var(--primary-color);
+    text-align: center;
+    padding: 12px 0;
+    width: 200px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25em;
+}
+.register-container .register-body .field{
+    display: flex;
+    flex-direction: column; 
+    margin: 1.25em 0;
+}
+
+.register-container .register-body .register-cont .field label{
+    color: var(--primary-text);
+    opacity: .67;
+    font-weight: 600;
+
+}
+
+.register-container .register-body .field input:focus{
+    border: 1px solid var(--primary-color);
+}
+
+.register-container .register-body .field input{
+    width: 250px;
+    padding: 12px;
+    border: 1px solid #bfbfbf;
+    color: var(--primary-text);
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.register-container .register-body .field select{
+    width: 450px;
+    padding: 12px;
+    border: 1px solid #bfbfbf;
+    color: var(--primary-text);
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+
+.register-container .register-body .field button{
+    color: var(--white);
+    background: var(--primary-color);
+    text-align: center;
+    padding: 12px 0;
+    width: 200px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25em;
+}

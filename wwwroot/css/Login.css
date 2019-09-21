@@ -1,0 +1,112 @@
+.containerLogin{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    
+}
+.containerLogin > div{
+    width: 50%;
+    padding: 3em;
+}
+.containerLogin .login-view{
+    
+    background: var(--main-background);
+}
+
+.form-login{
+    margin-top: 120px;
+    margin-left: 180px;
+}
+
+.form-login h2{
+    color: var(--primary-color);
+    font-size: 39px;
+    margin-bottom: .15em;
+}
+.form-login .line{
+    width: 100px;
+    border-radius: 100px;
+    height: 6px;
+    background: var(--primary-color);
+    opacity: .3;
+
+}
+.form-login form{
+    margin-top: 3em;
+    
+
+}
+.form-login form .field{
+    display: flex;
+    flex-direction: column;
+    margin: 1.25em 0;
+}
+.form-login form .field label{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-text);
+    opacity:.33;
+    margin-bottom: .5em;
+}
+
+.form-login form .field input{
+    padding: 12px 24px;
+    width: 360px;
+    font-size: 18px;
+    color: var(--primary-text);
+    border-radius: 6px;
+    border: 1px solid #bfbfbf;
+}
+
+.form-login form .field input:focus{
+    border: 1px solid var(--primary-color);
+}
+
+.form-login form .field button{
+    margin-top: 4em;
+    width: 360px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--white);
+    background: linear-gradient(45deg, var(--gradient-left), var(--gradient-right));
+    padding: .74em 0;
+    cursor: pointer;
+}
+
+.containerLogin .register-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3em;
+}
+
+.register-view h2{
+    margin: 1em 0 0 0;
+    font-size: 24px;
+    color: var(--primary-text);
+}
+.register-view p{
+    color: var(--primary-text);
+    opacity: .87;
+    font-size: 18px;
+    width: 540px;
+    text-align: center;
+}
+
+.register-view button{
+    margin-top: 4em;
+    width: 360px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--white);
+    background: var(--green); 
+    padding: .74em 0;
+    cursor: pointer;
+}
