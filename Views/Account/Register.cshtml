@@ -1,67 +1,87 @@
+@{
+    ViewData["Title"] = "Registro";
+}
+
+@model MiTutor.ViewModels.Account.RegisterViewModel
+
 <div class="register-container">
 
     <header>
         <div class="logo">
-            <a asp-controller="Home" asp-action="Index"><img src="~/assets/Logo.svg"/>
+            <a asp-controller="Account" asp-action="Login">
+                <img src="~/assets/Logo.svg" />
             </a>
         </div>
+
         <div class="field-login">
-            <button>Ingresar</button>
+            <a asp-controller="Account" asp-action="Login">
+                <button>Ingresar</button>
+            </a>
         </div>
     </header>
+
     <div class="register-body">
-        <div class="register-cont">
+        <form asp-controller="Account" asp-action="Register" method="post" class="register-cont">
             <h2>Registro</h2>
 
             <div class="field">
                 <label>Nombres</label>
-                <input name="Nombres" placeholder="Ingrese sus nombres" type="text"/>
+                <input asp-for="Name" placeholder="Ingrese sus nombres" />
             </div>
 
             <div class="field">
                 <label>Apellidos</label>
-                <input name="Apellidos" placeholder="Ingrese sus apellidos" type="text"/>
+                <input asp-for="Lastname" placeholder="Ingrese sus apellidos" />
             </div>
 
             <div class="field">
                 <label>Carrera</label>
-                <input name="Carrera" placeholder="Ingrese su carrera" type="text"/>
+                <input asp-for="Career" placeholder="Ingrese su carrera" />
             </div>
 
             <div class="field">
                 <label>Correo electrónico</label>
-                <input name="Email" placeholder="Ingrese sus email" type="text"/>
+                <input asp-for="Email" placeholder="Ingrese sus email" />
             </div>
 
             <div class="field">
                 <label>Universidad</label>
-                    <select>
-                        <option value="Universidad Peruana de Ciencias Aplicadas">Universidad Peruana de Ciencias Aplicadas</option>
-                    </select>            
+                <select asp-for="University">
+                    <option value="Universidad Peruana de Ciencias Aplicadas">Universidad Peruana de Ciencias Aplicadas</option>
+                </select>
             </div>
 
+            <div class="field">
+                <label>Semestre</label>
+                <select asp-for="Semester">
+                    <option value="1">Primer ciclo</option>
+                    <option value="2">Segundo ciclo</option>
+                    <option value="3">Tercer ciclo</option>
+                    <option value="4">Cuarto ciclo</option>
+                    <option value="5">Quinto ciclo</option>
+                    <option value="6">Sexto ciclo</option>
+                    <option value="7">Septimo ciclo</option>
+                    <option value="8">Octavo ciclo</option>
+                    <option value="9">Noveno ciclo</option>
+                    <option value="10">Décimo ciclo</option>
+                </select>
+            </div>
 
             <div class="field">
                 <label>Usuario</label>
-                <input name="Username" placeholder="Ingrese sus email" type="text"/>
+                <input asp-for="Username" placeholder="Ingrese su nombre de usuario" />
             </div>
 
             <div class="field">
                 <label>Contraseña</label>
-                <input name="Password" placeholder="Ingrese sus password" type="password"/>
+                <input asp-for="Password" placeholder="Ingrese su contraseña" />
             </div>
-
 
             <div class="field">
                 <button>Registrarme</button>
             </div>
-
-
-        </div>
-
+        </form>
 
     </div>
-
-
 
 </div>

@@ -1,5 +1,6 @@
 using MiTutor.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MiTutor.Data
 {
@@ -25,19 +26,19 @@ namespace MiTutor.Data
 
 			//Qualification-Person relationship
 			modelBuilder.Entity<Qualification>()
-                    .HasOne(q => q.Adresser)
-                    .WithMany(a => a.QualificationsReceived).OnDelete(DeleteBehavior.SetNull)
-                    .HasForeignKey(q => q.AdresserId).IsRequired();
+					.HasOne(q => q.Adresser)
+					.WithMany(a => a.QualificationsReceived).OnDelete(DeleteBehavior.SetNull)
+					.HasForeignKey(q => q.AdresserId).IsRequired();
 
-      		modelBuilder.Entity<Qualification>()
-                     .HasOne(q => q.Adressee)
-                    .WithMany(a => a.QualificationsGiven).OnDelete(DeleteBehavior.SetNull)
-                    .HasForeignKey(q => q.AdresseeId).IsRequired();
+			modelBuilder.Entity<Qualification>()
+				   .HasOne(q => q.Adressee)
+				  .WithMany(a => a.QualificationsGiven).OnDelete(DeleteBehavior.SetNull)
+				  .HasForeignKey(q => q.AdresseeId).IsRequired();
 
-		
+
 
 			//Many to many relationshp	
-			modelBuilder.Entity<StudentSubject>().HasKey(ss => new { ss.StudentId , ss.SubjectId});
+			modelBuilder.Entity<StudentSubject>().HasKey(ss => new { ss.StudentId, ss.SubjectId });
 
 			modelBuilder.Entity<StudentSubject>()
 			.HasOne<Student>(ss => ss.Student)
@@ -51,7 +52,7 @@ namespace MiTutor.Data
 
 
 
-			modelBuilder.Entity<TutorSubject>().HasKey(ts => new { ts.TutorId , ts.SubjectId});
+			modelBuilder.Entity<TutorSubject>().HasKey(ts => new { ts.TutorId, ts.SubjectId });
 
 			modelBuilder.Entity<TutorSubject>()
 			.HasOne<Tutor>(ts => ts.Tutor)
@@ -63,9 +64,9 @@ namespace MiTutor.Data
 			.WithMany(t => t.TutorSubjects)
 			.HasForeignKey(ts => ts.SubjectId);
 
-  
 
-			modelBuilder.Entity<StudentTutoringSession>().HasKey(sts => new { sts.StudentId, sts.TutoringSessionId});
+
+			modelBuilder.Entity<StudentTutoringSession>().HasKey(sts => new { sts.StudentId, sts.TutoringSessionId });
 
 			modelBuilder.Entity<StudentTutoringSession>()
 			.HasOne<Student>(sts => sts.Student)
@@ -78,8 +79,8 @@ namespace MiTutor.Data
 			.HasForeignKey(sts => sts.TutoringSessionId);
 
 
-			
-			modelBuilder.Entity<TopicTutoringOffer>().HasKey(tto => new { tto.TopicId, tto.TutoringOfferId});
+
+			modelBuilder.Entity<TopicTutoringOffer>().HasKey(tto => new { tto.TopicId, tto.TutoringOfferId });
 
 			modelBuilder.Entity<TopicTutoringOffer>()
 			.HasOne<Topic>(tto => tto.Topic)
@@ -93,7 +94,7 @@ namespace MiTutor.Data
 
 
 
-			modelBuilder.Entity<TopicTutoringSession>().HasKey(tts => new { tts.TopicId, tts.TutoringSessionId});
+			modelBuilder.Entity<TopicTutoringSession>().HasKey(tts => new { tts.TopicId, tts.TutoringSessionId });
 
 			modelBuilder.Entity<TopicTutoringSession>()
 			.HasOne<Topic>(tts => tts.Topic)
@@ -107,21 +108,21 @@ namespace MiTutor.Data
 
 
 
-			
-			 modelBuilder.Entity<Subject>().ToTable("Subject");
-			 modelBuilder.Entity<Topic>().ToTable("Topic");
-		     modelBuilder.Entity<Availability>().ToTable("Availability");
-			 modelBuilder.Entity<AvailabilityDay>().ToTable("AvailabilityDay");
-			 modelBuilder.Entity<Person>().ToTable("Person");
-			 modelBuilder.Entity<Qualification>().ToTable("Qualification");
-			 modelBuilder.Entity<Tutor>().ToTable("Tutor");
-			 modelBuilder.Entity<Student>().ToTable("Student");
-			 modelBuilder.Entity<TutoringOffer>().ToTable("TutoringOffer");
-			 modelBuilder.Entity<TutoringSession>().ToTable("TutoringSession");
-			 modelBuilder.Entity<University>().ToTable("University");
-			 modelBuilder.Entity<User>().ToTable("User"); 
+
+			modelBuilder.Entity<Subject>().ToTable("Subject");
+			modelBuilder.Entity<Topic>().ToTable("Topic");
+			modelBuilder.Entity<Availability>().ToTable("Availability");
+			modelBuilder.Entity<AvailabilityDay>().ToTable("AvailabilityDay");
+			modelBuilder.Entity<Person>().ToTable("Person");
+			modelBuilder.Entity<Qualification>().ToTable("Qualification");
+			modelBuilder.Entity<Tutor>().ToTable("Tutor");
+			modelBuilder.Entity<Student>().ToTable("Student");
+			modelBuilder.Entity<TutoringOffer>().ToTable("TutoringOffer");
+			modelBuilder.Entity<TutoringSession>().ToTable("TutoringSession");
+			modelBuilder.Entity<University>().ToTable("University");
+			modelBuilder.Entity<User>().ToTable("User");
 		}
 	}
-	
+
 
 }
