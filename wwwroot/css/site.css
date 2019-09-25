@@ -7,7 +7,7 @@ for details on configuring this project to bundle and minify static web assets. 
   --primary-text: #242424;
   --gradient-left: #4959EC;
   --gradient-right: #52A4EC;
-  --main-background: #fcfdff;
+  --main-background: #fafbfc;
   --white: #ffffff;
   --green: #2FE49A;
 }
@@ -32,4 +32,7 @@ for details on configuring this project to bundle and minify static web assets. 
 button:active{
   transition: all .2s ease-in-out;
   transform: scale(.96)
+}
+body{
+  background: var(--main-background);
 }
