@@ -9,53 +9,83 @@ namespace MiTutor.Data
     {
         public static void Initialize(MiTutorContext context)
         {
-           /* 
-		    context.Database.EnsureCreated();
+            /* 
+            context.Database.EnsureCreated();
 
             var un = new University();
-            un.Name="3r23";
+             un.Name="test university";
+             context.Universities.Add(un);
 
-            context.Universities.Add(un);
+             var u = new User();
+             u.Email="test@hotmail.com";
+             u.Password="textPassword123";
+             u.Username="User";
 
-            var u = new User();
-            u.Email="dfscsd";
+             var p = new Person();
+             p.Name="Antony";
+             p.LastName="Porras";
+             p.Semester=5;
+             p.User=u; 
+             p.University=un;
 
-            var p = new Person();
-            p.Name="E23";
-            p.User=u; 
-            p.University=un;
+             var tut = new Tutor();
+             tut.Points=100000;
+             tut.Person=p;
+             context.Tutors.Add(tut); 
 
-            var tut = new Tutor();
-            tut.Points=1;
-            tut.Person=p;
-            context.Tutors.Add(tut);
+             var su = new Subject();
+             su.Name="Calculo";
+             context.Subjects.Add(su);
 
-            var su = new Subject();
-            su.Name="23e32";
-            context.Subjects.Add(su);
+             var to = new Topic();
+             to.Name="Derivadas";
+             to.Subject=su;
+             context.Topics.Add(to);
 
-            var to = new Topic();
-            to.Name="32e2r";
-            to.TopicId=3;
-            to.Subject=su;
-            context.Topics.Add(to);
-    
-            var tu = new TutoringSession();
-            tu.Tutor=tut;
-            tu.Place="vdfvav";
-            tu.TopicTutoringSessions = new List<TopicTutoringSession>();
-            context.TutoringSessions.Add(tu); 
-            
+             to = new Topic();
+             to.Name="Integrales";
+             to.Subject=su;
+             context.Topics.Add(to);
 
-            var tAux= new TopicTutoringSession();
-            tAux.Topic=to;
-            tAux.TutoringSession=tu;
 
-            tu.TopicTutoringSessions.Add(tAux);  
-            context.SaveChanges();  */
 
-			
-			/*context.Universities.Remove(context.Universities.Where(ux => ux.UniversityId==1).First());
+
+             su = new Subject();
+             su.Name="Programacion2";
+             context.Subjects.Add(su);
+
+             to = new Topic();
+             to.Name="Clases";
+             to.Subject=su;
+             context.Topics.Add(to);
+
+             to = new Topic();
+             to.Name="Formulario";
+             to.Subject=su;
+             context.Topics.Add(to);
+
+
+             su = new Subject();
+             su.Name="Arquitectura de software";
+             context.Subjects.Add(su);
+
+             to = new Topic();
+             to.Name="Algoritmos de memoria";
+             to.Subject=su;
+             context.Topics.Add(to);
+
+
+             to = new Topic();
+             to.Name="Circuitos logicos";
+             to.Subject=su;
+             context.Topics.Add(to); 
+
+
+
+            context.SaveChanges();
+
+
+            /*context.Universities.Remove(context.Universities.Where(ux => ux.UniversityId==1).First());
 			context.SaveChanges(); */
 		
 

@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MiTutor.Migrations
 {
     [DbContext(typeof(MiTutorContext))]
-    [Migration("20190918062614_InitialCreate")]
+    [Migration("20190925232625_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,11 +203,7 @@ namespace MiTutor.Migrations
 
                     b.Property<int>("Points");
 
-                    b.Property<int?>("SubjectId");
-
                     b.HasKey("TutorId");
-
-                    b.HasIndex("SubjectId");
 
                     b.ToTable("Tutor");
                 });
@@ -408,10 +404,6 @@ namespace MiTutor.Migrations
 
             modelBuilder.Entity("MiTutor.Models.Tutor", b =>
                 {
-                    b.HasOne("MiTutor.Models.Subject")
-                        .WithMany("Tutors")
-                        .HasForeignKey("SubjectId");
-
                     b.HasOne("MiTutor.Models.Person", "Person")
                         .WithOne("Tutor")
                         .HasForeignKey("MiTutor.Models.Tutor", "TutorId")

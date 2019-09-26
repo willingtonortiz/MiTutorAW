@@ -32,9 +32,8 @@ namespace MiTutor
 				options.MinimumSameSitePolicy = SameSiteMode.None;
 			});
 
-			services.AddEntityFrameworkNpgsql().AddDbContext<MiTutorContext>(
-				options => options.UseNpgsql(Configuration.GetConnectionString("PostgresqlConnection")));
-
+			   services.AddEntityFrameworkNpgsql().AddDbContext<MiTutorContext>(
+                options=> options.UseNpgsql(Configuration.GetConnectionString("Connection")));
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 		}
@@ -61,7 +60,7 @@ namespace MiTutor
 			{
 				routes.MapRoute(
 					name: "default",
-					template: "{controller=Account}/{action=Login}/{id?}");
+					template: "{controller=Tutor}/{action=PublishTutoringSession}/{id?}");
 			});
 		}
 	}
