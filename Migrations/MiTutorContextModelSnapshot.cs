@@ -201,11 +201,7 @@ namespace MiTutor.Migrations
 
                     b.Property<int>("Points");
 
-                    b.Property<int?>("SubjectId");
-
                     b.HasKey("TutorId");
-
-                    b.HasIndex("SubjectId");
 
                     b.ToTable("Tutor");
                 });
@@ -406,10 +402,6 @@ namespace MiTutor.Migrations
 
             modelBuilder.Entity("MiTutor.Models.Tutor", b =>
                 {
-                    b.HasOne("MiTutor.Models.Subject")
-                        .WithMany("Tutors")
-                        .HasForeignKey("SubjectId");
-
                     b.HasOne("MiTutor.Models.Person", "Person")
                         .WithOne("Tutor")
                         .HasForeignKey("MiTutor.Models.Tutor", "TutorId")
