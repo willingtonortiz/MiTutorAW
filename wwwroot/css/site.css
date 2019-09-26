@@ -10,7 +10,8 @@ for details on configuring this project to bundle and minify static web assets. 
   --main-background: #fafbfc;
   --white: #ffffff;
   --green: #2FE49A;
-  --white-noise : #F9F6F6;
+  --white-noise : rgb(238, 238, 238);
+  --yellow: #FFD256;
 }
 
 

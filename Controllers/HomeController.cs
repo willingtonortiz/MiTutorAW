@@ -37,5 +37,9 @@ namespace MiTutor.Controllers
 		public IActionResult Suscripcion(){
 			return View();
 		}
+
+		public IActionResult Profile(){
+			return View();
+		}
 	}
 }
