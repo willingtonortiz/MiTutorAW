@@ -14,7 +14,7 @@ namespace MiTutor
 {
     public class Program
     {
-        
+
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
@@ -34,8 +34,7 @@ namespace MiTutor
                 }
             }
 
-
-          host.Run();
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +43,6 @@ namespace MiTutor
     }
 }
 
-    
 
-   
-   
+
+

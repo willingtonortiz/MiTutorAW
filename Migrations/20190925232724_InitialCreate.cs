@@ -100,18 +100,11 @@ namespace MiTutor.Migrations
                 {
                     TutorId = table.Column<int>(nullable: false),
                     Points = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    SubjectId = table.Column<int>(nullable: true)
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tutor", x => x.TutorId);
-                    table.ForeignKey(
-                        name: "FK_Tutor_Subject_SubjectId",
-                        column: x => x.SubjectId,
-                        principalTable: "Subject",
-                        principalColumn: "SubjectId",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Tutor_Person_TutorId",
                         column: x => x.TutorId,
@@ -192,8 +185,8 @@ namespace MiTutor.Migrations
                     Place = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     Capacity = table.Column<int>(nullable: false),
-                    SubjectId = table.Column<int>(nullable: true),
                     Description = table.Column<string>(nullable: true),
+                    SubjectId = table.Column<int>(nullable: true),
                     TutorId = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
                     TutorId1 = table.Column<int>(nullable: true)
@@ -432,11 +425,6 @@ namespace MiTutor.Migrations
                 column: "TutoringSessionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tutor_SubjectId",
-                table: "Tutor",
-                column: "SubjectId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TutoringOffer_SubjectId",
                 table: "TutoringOffer",
                 column: "SubjectId");
@@ -496,10 +484,10 @@ namespace MiTutor.Migrations
                 name: "TutoringOffer");
 
             migrationBuilder.DropTable(
-                name: "Tutor");
+                name: "Subject");
 
             migrationBuilder.DropTable(
-                name: "Subject");
+                name: "Tutor");
 
             migrationBuilder.DropTable(
                 name: "Person");

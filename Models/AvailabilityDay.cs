@@ -12,7 +12,6 @@ namespace MiTutor.Models
 
 
 		public int AvailabilityId { get; set; }
-
 		[ForeignKey("AvailabilityId")]
 		public Availability Availability { get; set; }
 	}

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MiTutor.Data;
 using MiTutor.Models;
+using MiTutor.Util.Sessions;
 using MiTutor.ViewModels.Account;
 
 namespace MiTutor.Controllers
@@ -36,16 +37,20 @@ namespace MiTutor.Controllers
 					(u.Email == model.Username && u.Password == model.Password)
 				);
 
+
 				if (user != null)
 				{
+					SessionService session = SessionService.GetInstance();
+
+					session.user = user;
+
 					return RedirectToAction("Index", "Home");
 				}
 
 				ModelState.AddModelError(string.Empty, "Usuario no encontrado");
-
-				return View(model);
 			}
-			return View(model);
+
+			return View();
 		}
 
 		[HttpGet]
