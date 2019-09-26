@@ -26,6 +26,7 @@ namespace MiTutor.Controllers
 
 		public IActionResult Home()
 		{
+			
 			return View();
 		}
 
@@ -82,6 +83,10 @@ namespace MiTutor.Controllers
 		}
 
 		public IActionResult Nuevatutoria(){
+			return View();
+		}
+		
+		public IActionResult Landing(){
 			return View();
 		}
 	}
