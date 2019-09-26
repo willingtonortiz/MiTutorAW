@@ -1,0 +1,72 @@
+.container-nuevatutoria-master{
+    background:var(--white-noise);
+    width: 100%;
+    position: relative;
+}
+
+.container-nuevatutoria{
+    overflow: auto;
+    width: 100%;
+    position: relative;
+}
+
+.container-nuevatutoria .form-container{
+    width: 40%;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 6px 24px 7px rgba(0,0,0,.01);
+    padding: 1em 1.75em;
+    border-radius: 6px;
+}
+
+.container-nuevatutoria .form-container h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--primary-text);
+    margin-bottom: 1.5em;
+}
+
+.container-nuevatutoria .form-container form .field{
+    margin: 2em 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-nuevatutoria .form-container form .field label{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-text);
+    margin-bottom: .5em;
+}
+
+.container-nuevatutoria .form-container form .field input,
+.container-nuevatutoria .form-container form .field select{
+    border: 1px solid #afafaf;
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 20px;
+    color: var(--primary-text);
+    width: 400px;
+}
+
+.container-nuevatutoria .form-container form .field textarea{
+    padding: 12px 18px;
+    border-radius: 6px;
+    border: 1px solid #afafaf;
+}
+.container-nuevatutoria .form-container form .field button{
+    padding: 16px 25px;
+    background: linear-gradient(45deg, var(--gradient-left), var(--gradient-right));
+    color: var(--white);
+    font-size: 22px ;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    opacity: .87;
+    cursor: pointer;
+    transition: all  .2s ease-out;
+}
+
+.container-nuevatutoria .form-container form .field button:hover{
+    opacity: 1;
+}

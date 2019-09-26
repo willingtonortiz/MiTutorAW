@@ -41,5 +41,9 @@ namespace MiTutor.Controllers
 		public IActionResult Profile(){
 			return View();
 		}
+
+		public IActionResult Nuevatutoria(){
+			return View();
+		}
 	}
 }
