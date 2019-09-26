@@ -49,7 +49,7 @@
                 @if(Model.Tutors.Count > 0)
                 {
                     <div class="results-tutorias">
-                        @foreach (var item in Model.Tutorings)
+                        @foreach (var item in Model.Tutors)
                         {
                             <partial name="_HomeTutorPartial" model="item"/>
                         }

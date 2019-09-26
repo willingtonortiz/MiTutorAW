@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MiTutor.Data;
 using MiTutor.Models;
 using MiTutor.Util;
+using MiTutor.Util.Sessions;
 using MiTutor.ViewModels.Home;
 
 namespace MiTutor.Controllers
@@ -15,10 +16,12 @@ namespace MiTutor.Controllers
 	public class HomeController : Controller
 	{
 		private readonly MiTutorContext _context;
+		// private SessionService sessionService;
 
 		public HomeController(MiTutorContext context)
 		{
 			_context = context;
+			// sessionService = SessionService.GetInstance();
 		}
 
 		[HttpGet]
@@ -26,11 +29,7 @@ namespace MiTutor.Controllers
 		{
 			ViewData["IsSearching"] = false;
 
-			HomeIndexViewModel model = new HomeIndexViewModel();
-
-
-
-			return View();
+			return View(new HomeIndexViewModel());
 		}
 
 		[HttpPost]
@@ -49,10 +48,12 @@ namespace MiTutor.Controllers
 					.Include(ts => ts.Subject)
 					.ToListAsync();
 
-				if (model.Tutorings.Count == 0)
-				{
-					ModelState.AddModelError(string.Empty, "No se encontraron tutorías");
-				}
+
+				model.Tutors = await _context.Tutors
+					.Include(t => t.Person)
+					.Where(t => t.TutorSubjects.Any(ts => ts.Subject.Name == search))
+					.ToListAsync();
+
 
 				return View("Index", model);
 			}
@@ -62,10 +63,8 @@ namespace MiTutor.Controllers
 
 		public IActionResult TutoriaDetail()
 		{
-
 			return View();
 		}
-
 
 		public IActionResult Suscripcion()
 		{
