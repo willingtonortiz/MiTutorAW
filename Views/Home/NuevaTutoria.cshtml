@@ -27,54 +27,50 @@
             <form action="">
                 <div class="field">
                     <label for="">Nombre del curso</label>
-                    <select>
-                        <option>Calculo 2</option>
-                        <option>Calculo 1</option>
-                        <option>Fisica 1</option>
-                        <option>Compresion y produccion de Lenguaje</option>
+                    <select name="Subject">
+                        <option value="Calculo2" >Calculo 2</option>
+                        <option value="Calculo1">Calculo 1</option>
+                        <option value="Fisica1" >Fisica 1</option>
+                        
                     </select>
                 </div>
                 <div class="field">
-                    <label for="">Dia</label>
-                    <input type="text" placeholder="Ingrese el día">
+                    <label for="">Fecha</label>
+                    <input type="date" name="Date" placeholder="Fecha">
 
                 </div>
+
                 <div class="field">
                     <label for="">Hora de inicio</label>
-                    <input type="text" placeholder="Ingrese la hora de inicio">
+                    <input type="text" name="TimeStart" placeholder="Ingrese la hora de inicio">
 
                 </div>
                 <div class="field">
                     <label for="">Hora de fin</label>
-                    <input type="text" placeholder="Ingrese la hora de fin">
+                    <input type="text" name="TimeEnd" placeholder="Ingrese la hora de fin">
 
                 </div>
-                <div class="field">
-                    <label for="">Hora de inicio</label>
-                    <input type="text" placeholder="Fecha">
-
-                </div>
+                
                 <div class="field">
                     <label for="">Participantes máximos</label>
-                    <input type="text" placeholder="Ingrese el numero de participantes máximos">
+                    <input type="text" name="Capacity" placeholder="Ingrese el numero de participantes máximos">
 
                 </div>
                 <div class="field">
                     <label for="">Ubicacion</label>
-                    <input type="text" placeholder="Ubicacion">
+                    <input type="text" name="Place" placeholder="Ubicacion">
                 </div>
                 <div class="field">
                     <label for="">Temas</label>
-                    <select>
-                        <option>Integrales</option>
-                        <option>MRU</option>
-                        <option>Reglas gramáticas</option>
-                        <option>Leyes de Newton</option>
+                    <select name="Topic">
+                        <option value="Integrales">Integrales</option>
+                        <option value="MRU">MRU</option>                        
+                        <option value="LeyesNewton">Leyes de Newton</option>
                     </select>
                 </div>
                 <div class="field">
                     <label for="">Descripción</label>
-                    <textarea name="descripcion" id="" cols="30" rows="10"></textarea>
+                    <textarea name="Description" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="field">
                     <button type="submit">Publicar tutoria</button>
