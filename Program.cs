@@ -25,7 +25,7 @@ namespace MiTutor
                 try
                 {
                     var context = services.GetRequiredService<MiTutorContext>();
-                    DbInitializer.Initialize(context);
+                    //DbInitializer.GenerateData(context);
                 }
                 catch (Exception ex)
                 {

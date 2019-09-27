@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MiTutor.Models
 {
+
 	public class Subject
 	{
 		[Key]
@@ -21,4 +22,5 @@ namespace MiTutor.Models
 			return $"Subject {{ Subject: {SubjectId}, Name: {Name} }}";
 		}
 	}
+
 }

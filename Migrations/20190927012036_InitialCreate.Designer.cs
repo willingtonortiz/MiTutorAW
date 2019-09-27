@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MiTutor.Migrations
 {
     [DbContext(typeof(MiTutorContext))]
-    [Migration("20190925232724_InitialCreate")]
+    [Migration("20190927012036_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

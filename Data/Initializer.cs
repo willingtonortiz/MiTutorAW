@@ -8,34 +8,15 @@ using MiTutor.Util;
 
 namespace MiTutor.Data
 {
+
 	public static class DbInitializer
 	{
 		private static ConsolePrinter printer { get; set; }
 
-		public static void Initialize(MiTutorContext context)
-		{
-			// printer = new ConsolePrinter();
 
-			// New initializer
+		public static void GenerateData(MiTutorContext context)
+		{
 			context.Database.EnsureCreated();
-
-			
-			/*TutoringSession tutoringSession1 = context.TutoringSessions.FirstOrDefault(t => t.TutoringId == 4);
-			TutoringSession tutoringSession2 = context.TutoringSessions.FirstOrDefault(t => t.TutoringId == 5);
-			TutoringSession tutoringSession3 = context.TutoringSessions.FirstOrDefault(t => t.TutoringId == 6);
-
-			context.TutoringSessions.Remove(tutoringSession1);
-			context.TutoringSessions.Remove(tutoringSession2);
-			context.TutoringSessions.Remove(tutoringSession3);
-
-			context.SaveChanges();*/
-
-			// LoadTutoringSessions(context);
-
-		}
-
-		private static void GenerateData(MiTutorContext context)
-		{
 			LoadUniversities(context);
 			LoadCourses(context);
 			LoadStudents(context);

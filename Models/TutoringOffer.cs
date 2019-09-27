@@ -15,6 +15,7 @@ namespace MiTutor.Models
         public string Description { get; set; }
 
 
+
         public Subject Subject { get; set; }
         public List<TopicTutoringOffer> TopicTutoringOffers { get; set; }
 
