@@ -1,0 +1,119 @@
+@model  MiTutor.ViewModels.StudentActions.StudentTutoringSessionView
+
+<div class="container-tutoriaDetail-master">
+
+    <header>
+        <div class="logo">
+            <img src="~/assets/Logo.svg" />
+
+        </div>
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="¿Buscas algún curso?" name="curso-find"/>
+            </form>
+        </div>
+        <div class="avatar-profile">
+            <h2 class="avatar-title">Jair Huaman</h2>
+            <p class="avatar-rol">Estudiante</p>
+        </div>
+        
+    </header>
+    <div class="container-tutoria-details">
+        <div class="details">
+            <h2>@Model.TutoringSession.Subject.Name</h2>
+
+            <div>
+                <div class="detail">
+                    <p class="label-detail">Fecha</p>
+                    <p class="text-detail">@Model.TutoringSession.Date</p>
+                </div>
+              
+                <div class="detail">
+                    <p class="label-detail">Ubicacion</p>
+                    <p class="text-detail">@Model.TutoringSession.Place</p>
+                </div>
+            
+                <div class="detail">
+                    <p class="label-detail">Descripcion</p>
+                    <p class="text-detail">@Model.TutoringSession.Description</p>
+                </div>
+
+
+                @{
+                  if(@Model.Confirmed==false){  
+                   <div class="submit-reserva">
+                      <form asp-action="DisplayTutoringSession" method="post">
+                          @Html.HiddenFor(model => @Model.TutoringSession.TutoringId)
+                          @Html.HiddenFor(model => @Model.StudentId)
+                         <input type="submit" value="Reservar Tutoría"/>
+                      </form> 
+                   </div>
+                  } else{
+                    <div class="events-afterReserved">    
+                      <form asp-action="DisplayTutoringSession"  method="post"> 
+                          @Html.HiddenFor(model => @Model.TutoringSession.TutoringId)   
+                          @Html.HiddenFor(model => @Model.StudentId)            
+                         <input type="submit" value="Cancelar Tutoría" />
+                      </form> 
+                    </div>
+                  }
+                }
+
+            </div>
+
+        </div>
+        <div class="info">
+            <div class="card-tutor">
+                <img src="" alt="">
+                <p class="tutor-name">Juan Carlos Sotomayor Reyes</p>
+
+                <div class="score-info-tutor">
+                    <p class="score">4.6</p>
+                    <p>Puntuacion</p>
+                </div>
+                <div class="navigate-profile">
+                    <a>Ver perfil</a>
+                </div>
+            </div>
+
+            <div class="card-infotutoria">
+                <div class="title">Participantes</div>
+                <div class="score">
+                    <p>@{ @Model.TutoringSession.StudentTutoringSessions.Count()}/@{ @Model.TutoringSession.Capacity}</p>
+                    <p>Asistirán</p>
+                </div>
+            </div>
+        </div>
+        <div class="similar">
+            <h2>Relacionados</h2>
+            <div class="card-tutoria">
+                <h3 class="title-tutoria">Calculo 2</h3>
+                <p class="tutor-tutoria">Maria Camila Chavez</p>
+
+            </div>
+            <div class="card-tutoria">
+                <h3 class="title-tutoria">Calculo 2</h3>
+                <p class="tutor-tutoria">Maria Camila Chavez</p>
+
+            </div>
+            <div class="card-tutoria">
+                <h3 class="title-tutoria">Calculo 2</h3>
+                <p class="tutor-tutoria">Maria Camila Chavez</p>
+
+            </div>
+            <div class="card-tutoria">
+                <h3 class="title-tutoria">Calculo 2</h3>
+                <p class="tutor-tutoria">Maria Camila Chavez</p>
+
+            </div>
+            <div class="card-tutoria">
+                <h3 class="title-tutoria">Calculo 2</h3>
+                <p class="tutor-tutoria">Maria Camila Chavez</p>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
