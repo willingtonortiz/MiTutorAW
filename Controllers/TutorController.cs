@@ -33,7 +33,7 @@ namespace MiTutor.Controllers
         {
             var _TutoringSessionTemplate = new TutoringSessionTemplate();
             _TutoringSessionTemplate.Subjects = await _context.Subjects.ToListAsync();
-            //TutoringOfferTemplate.Topics = new List<Topic>();
+            _TutoringSessionTemplate.Topics = new List<Topic>();
             //_TutoringSessionTemplate.Topics = await _context.Topics.Where(t => t.SubjectId == 1).ToListAsync();
 
             return View(_TutoringSessionTemplate);

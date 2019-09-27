@@ -1,0 +1,211 @@
+.landing-container .section{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+
+.landing-container .home-selection{
+    background: url('../assets/Home.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.landing-container .porqueNosotros{
+    background: url('../assets/Porque.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.landing-container .membresia{
+    background: url('../assets/Membresia.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.landing-container .miembros{
+    background: url('../assets/StarUp.png');
+    background-size: cover;
+    background-position: center center;
+}
+
+.home-selection .card-content{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translate(-10%, -30%);
+}
+
+.home-selection .card-content h2{
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--primary-text);
+}
+.home-selection .card-content p{
+    font-size: 24px;
+    color: var(--primary-text);
+    opacity: .78;
+    margin: 1.5em 0 4em 0;
+}
+.home-selection .card-content a{
+    margin-top: 2em;
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 6px;
+    font-size: 22px;
+    opacity: .87;
+    transition: all .2s ease-out;
+    cursor: pointer;
+}
+
+.home-selection .card-content a:hover{
+    opacity: 1;
+}   
+
+.porqueNosotros .title{
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.porqueNosotros .title h2{
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: .5em;
+}
+
+.porqueNosotros .title  .line{
+    width: 100px;
+    height: 6px;
+    border-radius: 6px;
+    background: var(--primary-color);
+    opacity: .57;
+}
+
+.porqueNosotros .content{
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    transform: translate(-20%,-30%);
+}
+
+.porqueNosotros .content h2{
+    width: 500px;
+    font-size: 48px;
+    margin-bottom: 1.5em;
+}
+
+.porqueNosotros .content .estudiantes-info{
+    margin-bottom: 4em;
+}
+
+.porqueNosotros .content > div  h3{
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: .5em;
+}
+.porqueNosotros .content > div p{
+    width: 450px;
+    font-size: 24px;
+    color: var(--primary-text);
+}
+
+.membresia .content{
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    transform: translate(-20%,-5%);
+}
+.membresia .content .title{
+    color: var(--green);
+    font-size: 24px;
+    margin-bottom: 1.5em;
+
+}
+
+.membresia .content .Slogan{
+    color: var(--primary-text);
+    font-size: 50px;
+    margin-bottom: .25em;
+}
+
+.membresia .content .info{
+    font-size: 24px;
+    color: var(--primary-text);
+    width:500px;
+    opacity: .87;
+}
+
+.membresia .content  .beneficios {
+    margin-top: 13.5em;
+    margin-left: 3em;
+}
+
+.membresia .content  .beneficios  h2{
+    font-size: 32px;
+    color: var(--green);
+    font-weight: bold;
+    margin-bottom: .5em; 
+
+}
+.membresia .content  .beneficios  .item{
+    margin-bottom: 1em;
+
+}
+.membresia .content  .beneficios  .item p{
+    font-size: 24px;
+    color: var(--primary-text);
+    font-weight: 600;
+}
+
+.miembros .content{
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    transform: translate(-30%,-10%);
+    width: 40%;
+}
+
+.miembros .content .title{
+    color: var(--yellow);
+    font-size: 24px;
+    margin-bottom: 1.25em;
+}
+
+.miembros .content .Slogan{
+    color: var(--primary-text);
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.miembros .content p{
+    color: var(--primary-text);
+    opacity: .87;
+    font-size: 24px;
+}
+
+.miembros .list-members{
+    margin-top: 8em;
+}
+
+.miembros .list-members .item{
+    display: flex;
+    margin:0em 0 8em 0;
+}
+
+.miembros .list-members .item .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 2em;    
+}
+
+.miembros .list-members .jair-container{
+    padding-left: 8em;
+}

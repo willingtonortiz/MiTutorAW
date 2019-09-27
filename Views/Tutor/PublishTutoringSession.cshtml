@@ -1,0 +1,78 @@
+@model  MiTutor.ViewModels.TutorActions.TutoringSessionTemplate
+
+<div class="container-nuevatutoria-master">
+    <header>
+        <div class="logo">
+            <img src="~/assets/Logo.svg" />
+
+        </div>
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="¿Buscas algún curso?" name="curso-find" />
+            </form>
+        </div>
+        <div class="avatar-profile">
+            <h2 class="avatar-title">Jair Huaman</h2>
+            <!-- cuando el estudiante es estudiante -->
+            <!-- <p class="avatar-rol">Estudiante</p> -->
+
+            <!-- cuando el estudiante es tutor -->
+            <p class="avatar-rol">Tutor</p>
+
+        </div>
+
+    </header>
+
+    <div class="container-nuevatutoria">
+        <div class="form-container">
+            <h2>Nueva tutoría</h2>
+            <form asp-action="PublishTutoringSession">
+                
+                @using (Html.BeginForm())
+                {
+                <div class="form-group">
+                @Html.DropDownListFor(model => model.SelectedSubjectId,
+                    Model.getSubjectsAsItems(),
+                    "Select a subject", new { @class = "form-control", @id ="subject"})
+                </div>
+
+
+                <div class="form-group">
+                @Html.DropDownListFor(model => model.SelectedTopicsId,
+                    Model.getTopicsAsItems(), new { @class = "form-control ", @id ="topics", @multiple="multiple"})
+                </div>
+                }
+
+
+                <div class="field">
+                    <label for="">Fecha</label>
+                    <input type="date" asp-for="Date" name="Date" placeholder="Fecha">
+                    <span asp-validation-for="Date"></span>
+
+                </div>  
+
+                <div class="field">
+                    <label for="">Participantes máximos</label>
+                    <input type="text" asp-for="Capacity" name="Capacity" placeholder="Ingrese el numero de participantes máximos">
+
+                </div>
+
+                <div class="field">
+                    <label for="">Ubicacion</label>
+                    <input type="text"asp-for="Place" name="Place" placeholder="Ubicacion">
+                </div>
+
+                <div class="field">
+                    <label for="">Descripción</label>
+                    <textarea name="Description"  asp-for="Description" id="" cols="30" rows="10"></textarea>
+                </div>
+
+
+                <div class="field">
+                    <button type="submit">Publicar tutoria</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
