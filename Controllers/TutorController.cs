@@ -34,7 +34,7 @@ namespace MiTutor.Controllers
             var _TutoringSessionTemplate = new TutoringSessionTemplate();
             _TutoringSessionTemplate.Subjects = await _context.Subjects.ToListAsync();
             //TutoringOfferTemplate.Topics = new List<Topic>();
-            _TutoringSessionTemplate.Topics = await _context.Topics.Where(t => t.SubjectId == 1).ToListAsync();
+            //_TutoringSessionTemplate.Topics = await _context.Topics.Where(t => t.SubjectId == 1).ToListAsync();
 
             return View(_TutoringSessionTemplate);
         }
@@ -56,20 +56,21 @@ namespace MiTutor.Controllers
                 _TutoringSession.TopicTutoringSessions = new List<TopicTutoringSession>();
                 TopicTutoringSession _TopicTutoringSession;
 
+
                 for (int i = 0; i < tutoringSession.SelectedTopicsId.Count; ++i)
                 {
                     _TopicTutoringSession = new TopicTutoringSession();
                     _TopicTutoringSession.Topic = _context.Topics.
                         FirstOrDefault(to => to.TopicId == tutoringSession.SelectedTopicsId.ElementAt(i));
-                    _TopicTutoringSession.TutoringSession= _TutoringSession;
-           
+                    _TopicTutoringSession.TutoringSession = _TutoringSession;
+
                     _TutoringSession.TopicTutoringSessions.Add(_TopicTutoringSession);
-    
+
                     _TopicTutoringSession.Topic.TopicTutoringSessions = new List<TopicTutoringSession>();
                     _TopicTutoringSession.Topic.TopicTutoringSessions.Add(_TopicTutoringSession);
-                    _context.Topics.Update(_TopicTutoringSession.Topic);    
+                    _context.Topics.Update(_TopicTutoringSession.Topic);
                 }
-  
+
                 _TutoringSession.Tutor.TutoringSessions = new List<TutoringSession>();
                 _TutoringSession.Tutor.TutoringSessions.Add(_TutoringSession);
                 _context.TutoringSessions.Add(_TutoringSession);
@@ -77,11 +78,10 @@ namespace MiTutor.Controllers
 
                 _context.Tutors.Update(_TutoringSession.Tutor);
                 await _context.SaveChangesAsync();
-               // return Content();
+                // return Content();
             }
             return RedirectToAction("Index", "Home");
         }
-
 
         public async Task<JsonResult> GetTopics(int SubjectId)
         {

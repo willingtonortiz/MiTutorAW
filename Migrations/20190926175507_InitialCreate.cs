@@ -185,8 +185,8 @@ namespace MiTutor.Migrations
                     Place = table.Column<string>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     Capacity = table.Column<int>(nullable: false),
-                    SubjectId = table.Column<int>(nullable: true),
                     Description = table.Column<string>(nullable: true),
+                    SubjectId = table.Column<int>(nullable: true),
                     TutorId = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
                     TutorId1 = table.Column<int>(nullable: true)

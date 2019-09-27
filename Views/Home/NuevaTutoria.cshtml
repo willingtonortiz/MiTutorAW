@@ -1,0 +1,82 @@
+<div class="container-nuevatutoria-master">
+    <header>
+        <div class="logo">
+            <img src="~/assets/Logo.svg" />
+
+        </div>
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="¿Buscas algún curso?" name="curso-find" />
+            </form>
+        </div>
+        <div class="avatar-profile">
+            <h2 class="avatar-title">Jair Huaman</h2>
+            <!-- cuando el estudiante es estudiante -->
+            <!-- <p class="avatar-rol">Estudiante</p> -->
+
+            <!-- cuando el estudiante es tutor -->
+            <p class="avatar-rol">Tutor</p>
+
+        </div>
+
+    </header>
+
+    <div class="container-nuevatutoria">
+        <div class="form-container">
+            <h2>Nueva tutoría</h2>
+            <form action="">
+                <div class="field">
+                    <label for="">Nombre del curso</label>
+                    <select name="Subject">
+                        <option value="Calculo2" >Calculo 2</option>
+                        <option value="Calculo1">Calculo 1</option>
+                        <option value="Fisica1" >Fisica 1</option>
+                        
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">Fecha</label>
+                    <input type="date" name="Date" placeholder="Fecha">
+
+                </div>
+
+                <div class="field">
+                    <label for="">Hora de inicio</label>
+                    <input type="text" name="TimeStart" placeholder="Ingrese la hora de inicio">
+
+                </div>
+                <div class="field">
+                    <label for="">Hora de fin</label>
+                    <input type="text" name="TimeEnd" placeholder="Ingrese la hora de fin">
+
+                </div>
+                
+                <div class="field">
+                    <label for="">Participantes máximos</label>
+                    <input type="text" name="Capacity" placeholder="Ingrese el numero de participantes máximos">
+
+                </div>
+                <div class="field">
+                    <label for="">Ubicacion</label>
+                    <input type="text" name="Place" placeholder="Ubicacion">
+                </div>
+                <div class="field">
+                    <label for="">Temas</label>
+                    <select name="Topic">
+                        <option value="Integrales">Integrales</option>
+                        <option value="MRU">MRU</option>                        
+                        <option value="LeyesNewton">Leyes de Newton</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">Descripción</label>
+                    <textarea name="Description" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="field">
+                    <button type="submit">Publicar tutoria</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

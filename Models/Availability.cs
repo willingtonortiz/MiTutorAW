@@ -10,10 +10,11 @@ namespace MiTutor.Models
 		[Key]
 		public int AvailabilityId { get; set; }
 
-		public int TutorId { get; set; }
 
+		public int TutorId { get; set; }
 		[ForeignKey("TutorId")]
 		public Tutor Tutor { get; set; }
+
 
 		public List<AvailabilityDay> AvailabilityDays { get; set; }
 	}

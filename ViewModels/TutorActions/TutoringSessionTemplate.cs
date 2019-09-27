@@ -20,7 +20,6 @@ namespace MiTutor.ViewModels.TutorActions
         public List<int> SelectedTopicsId {get; set;}
 
 
-
         public IEnumerable<SelectListItem> getSubjectsAsItems()
         {
             return new SelectList(Subjects, "SubjectId", "Name");

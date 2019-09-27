@@ -1,18 +1,28 @@
-<div class="container-home-master">
 
+
+
+
+
+
+<div class="container-home-master">
     <header>
         <div class="logo">
             <img src="~/assets/Logo.svg" />
-
         </div>
+
         <div class="searchbar">
             <form>
                 <input type="text" placeholder="¿Buscas algún curso?" name="curso-find"/>
             </form>
         </div>
+
         <div class="avatar-profile">
             <h2 class="avatar-title">Jair Huaman</h2>
-            <p class="avatar-rol">Estudiante</p>
+            <!-- cuando el estudiante es estudiante -->
+            <!-- <p class="avatar-rol">Estudiante</p> -->
+
+            <!-- cuando el estudiante es tutor -->
+            <p class="avatar-rol">Tutor</p>
 
         </div>
         
@@ -20,9 +30,75 @@
 
 
     <div class="container-home">
-        <aside class="side-bar tutor-membership">
+
+        <!-- Cuando es estudiante -->
+        <!-- <aside class="side-bar tutor-membership">
             <a>Quiero ser tutor</a>
 
+        </aside> -->
+
+        <aside class="side-bar tutor-liteDashboard">
+            <div class="card-tutorias">
+                <!-- cuando el tutor no tiene ninguna tutoria -->
+                <!-- <div class="no-tutorias">
+                    <h2>No tienes tutorías</h2>
+                    <p>Publica tu primera tutoría Jair</p>
+
+                    <a href="">Nueva Tutoría</a>
+                </div>
+  -->
+                <!-- cuando el tutor tiene al menos una tutoria -->
+                <div class="tutor-tutorias-home">
+                    <h2>Mis tutorias </h2>
+
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Cálculo</h2>
+                        <p>2/3 integrantes</p>
+                    </div>
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Fisica III</h2>
+                        <p>1/3 integrantes</p>
+                    </div>
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Lenguaje 2</h2>
+                        <p>0/3 integrantes</p>
+                    </div>
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Lenguaje 2</h2>
+                        <p>0/3 integrantes</p>
+                    </div>
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Lenguaje 2</h2>
+                        <p>0/3 integrantes</p>
+                    </div>
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Lenguaje 2</h2>
+                        <p>0/3 integrantes</p>
+                    </div>
+                    <div class="card-tutoria">
+                        <h2 class="title-tutoria">Lenguaje 2</h2>
+                        <p>0/3 integrantes</p>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="card-disponibilidad">
+                <!-- cuando el tutor aun no ha ingresado sus horarios de disponibilidad -->
+                
+
+                    <!-- <h2>Disponibilidad</h2>
+                    <p>Aun no has agregado un horario de disponibilidad</p>
+                    
+                    <a href="">Agregar Horario</a>
+                 -->
+                
+                    <h2>Disponibilidad</h2>
+                    <p>Los estudiantes necesitan saber si tienes tiempo para que los ayudes</p>
+                    <button>Activar</button>
+                
+            </div>
         </aside>
 
         <div class="tutorias-board-container">

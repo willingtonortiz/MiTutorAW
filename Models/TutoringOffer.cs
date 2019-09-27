@@ -12,16 +12,16 @@ namespace MiTutor.Models
         public string Place { get; set; }
         public DateTime Date { get; set; }
         public int Capacity { get; set; }
-        
-        
+        public string Description { get; set; }
+
+
 
         public Subject Subject { get; set; }
         public List<TopicTutoringOffer> TopicTutoringOffers { get; set; }
-        public string Description { get; set; }
+
         public int TutorId { get; set; }
 
         [ForeignKey("TutorId")]
         public Tutor Tutor { get; set; }
-
     }
 }
