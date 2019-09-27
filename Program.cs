@@ -14,7 +14,6 @@ namespace MiTutor
 {
     public class Program
     {
-
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
@@ -25,7 +24,7 @@ namespace MiTutor
                 try
                 {
                     var context = services.GetRequiredService<MiTutorContext>();
-                    //DbInitializer.GenerateData(context);
+                    // DbInitializer.GenerateData(context);
                 }
                 catch (Exception ex)
                 {
@@ -36,7 +35,6 @@ namespace MiTutor
 
             host.Run();
         }
-
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
