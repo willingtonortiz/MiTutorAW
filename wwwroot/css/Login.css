@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    
+    background: #ffffff;
 }
 .containerLogin > div{
     width: 50%;
@@ -10,7 +10,7 @@
 }
 .containerLogin .login-view{
     
-    background: var(--main-background);
+    
 }
 
 .form-login{
