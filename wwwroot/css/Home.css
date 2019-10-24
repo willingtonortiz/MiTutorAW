@@ -264,3 +264,20 @@ header .avatar-profile{
     background: var(--primary-color);
     color: var(--white);
 }
+
+@media (max-width:720px) {
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    header .searchbar input{
+        width: 300px;
+        
+    }
+    header .searchbar{
+        display: flex;
+        justify-content: center;
+        margin: 1em 0;
+    }
+
+}

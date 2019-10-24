@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MiTutor.Data;
 using MiTutor.Models;
 using MiTutor.ViewModels.TutorActions;
+using MiTutor.Util;
 
 namespace MiTutor.Controllers
 {
@@ -16,6 +17,8 @@ namespace MiTutor.Controllers
     {
         private readonly MiTutorContext _context;
 
+
+        private ConsolePrinter ga;
         public TutorController(MiTutorContext context)
         {
             _context = context;
@@ -57,6 +60,11 @@ namespace MiTutor.Controllers
                 _TutoringSession.TopicTutoringSessions = new List<TopicTutoringSession>();
                 TopicTutoringSession _TopicTutoringSession;
 
+                ga =  new ConsolePrinter();
+
+                ga.AddLine(tutoringSession.SelectedTopicsId.Count);
+                ga.PrintMessage();
+
 
                 for (int i = 0; i < tutoringSession.SelectedTopicsId.Count; ++i)
                 {
@@ -71,7 +79,8 @@ namespace MiTutor.Controllers
                     _TopicTutoringSession.Topic.TopicTutoringSessions.Add(_TopicTutoringSession);
                     _context.Topics.Update(_TopicTutoringSession.Topic);
                 }
-
+                 
+                 
                 _TutoringSession.Tutor.TutoringSessions = new List<TutoringSession>();
                 _TutoringSession.Tutor.TutoringSessions.Add(_TutoringSession);
                 _context.TutoringSessions.Add(_TutoringSession);
