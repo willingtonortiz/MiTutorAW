@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MiTutor.Data;
 using MiTutor.Models;
+using MiTutor.Util.Sessions;
 using MiTutor.ViewModels.TutorActions;
 using MiTutor.Util;
 
@@ -22,6 +23,7 @@ namespace MiTutor.Controllers
         public TutorController(MiTutorContext context)
         {
             _context = context;
+            
         }
 
 
@@ -34,6 +36,7 @@ namespace MiTutor.Controllers
         [HttpGet]
         public async Task<IActionResult> PublishTutoringSession(int TutorId)
         {
+
             var _TutoringSessionTemplate = new TutoringSessionTemplate();
             _TutoringSessionTemplate.Subjects = await _context.Subjects.ToListAsync();
             _TutoringSessionTemplate.Topics = new List<Topic>();
@@ -50,11 +53,12 @@ namespace MiTutor.Controllers
             if (ModelState.IsValid)
             {
                 TutoringSession _TutoringSession = new TutoringSession();
+                Tutor _Tutor = await _context.Tutors.FirstOrDefaultAsync(t => t.TutorId == 4);
                 _TutoringSession.Capacity = tutoringSession.Capacity;
                 _TutoringSession.Date = tutoringSession.Date;
                 _TutoringSession.Description = tutoringSession.Description;
                 _TutoringSession.Place = tutoringSession.Place;
-                _TutoringSession.Tutor = await _context.Tutors.FirstOrDefaultAsync(t => t.TutorId == tutoringSession.TutorId);
+                _TutoringSession.Tutor = _Tutor;
                 _TutoringSession.Subject = await _context.Subjects.FirstOrDefaultAsync(s => s.SubjectId == tutoringSession.SelectedSubjectId);
 
                 _TutoringSession.TopicTutoringSessions = new List<TopicTutoringSession>();
@@ -79,16 +83,15 @@ namespace MiTutor.Controllers
                     _TopicTutoringSession.Topic.TopicTutoringSessions.Add(_TopicTutoringSession);
                     _context.Topics.Update(_TopicTutoringSession.Topic);
                 }
-                 
-                 
-                _TutoringSession.Tutor.TutoringSessions = new List<TutoringSession>();
-                _TutoringSession.Tutor.TutoringSessions.Add(_TutoringSession);
                 _context.TutoringSessions.Add(_TutoringSession);
 
-
+                _Tutor.TutoringSessions = new List<TutoringSession>();
+                _Tutor.TutoringSessions.Add(_TutoringSession);
                 _context.Tutors.Update(_TutoringSession.Tutor);
+               
                 await _context.SaveChangesAsync();
-                // return Content();
+               return RedirectToAction("Home", "Home");
+                
             }
             return RedirectToAction("Index", "Home");
         }

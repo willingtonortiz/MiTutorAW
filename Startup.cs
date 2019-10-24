@@ -62,7 +62,7 @@ namespace MiTutor
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Tutor}/{action=PublishTutoringSession}/{id?}");
+                    template: "{controller=Student}/{action=DisplayTutoringSession}/{id?}");
             });
         }
     }
