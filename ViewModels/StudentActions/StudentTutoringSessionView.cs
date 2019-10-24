@@ -11,6 +11,7 @@ namespace MiTutor.ViewModels.StudentActions
     {
         public TutoringSession TutoringSession {get; set;}
         public int StudentId {get; set;}
+        public bool Confirmed {get; set;}
 
     }
 }
