@@ -156,5 +156,11 @@
         width: 300px;
         margin: 0 auto !important;
     }
+    .container-home{
+        display: flex;
+        flex-direction: column;
+    }
+
+    
 
 }

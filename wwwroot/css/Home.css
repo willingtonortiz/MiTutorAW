@@ -278,6 +278,11 @@ header .avatar-profile{
         display: flex;
         justify-content: center;
         margin: 1em 0;
+        width: 300px;
+    }
+
+    .container-home .tutor-membership{
+        display: none;
     }
 
 }
