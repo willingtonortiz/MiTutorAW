@@ -59,6 +59,8 @@ namespace MiTutor.Data
 
 			context.SaveChanges();
 		}
+		
+		
 		private static void GenerateCourses(MiTutorContext context, int subjectNumber, int topicNumber)
 		{
 			int maxId = 0;
@@ -118,6 +120,8 @@ namespace MiTutor.Data
 
 			context.SaveChanges();
 		}
+
+		
 		private static void GenerateTutors(MiTutorContext context, int tutorsNumber)
 		{
 			for (int i = 0; i < tutorsNumber; i++)
@@ -154,6 +158,7 @@ namespace MiTutor.Data
 			context.SaveChanges();
 		}
 
+
 		private static void LoadTutorsSubjects(MiTutorContext context)
 		{
 			Tutor tutor1 = context.Tutors.FirstOrDefault(t => t.Person.Name == "tutor_1");
@@ -180,6 +185,7 @@ namespace MiTutor.Data
 			context.SaveChanges();
 		}
 
+
 		private static void LoadStudents(MiTutorContext context)
 		{
 			University university = context
@@ -203,6 +209,8 @@ namespace MiTutor.Data
 
 			context.SaveChanges();
 		}
+
+		
 		private static void GenerateStudents(MiTutorContext context, int studentsNumber)
 		{
 			for (int i = 0; i < studentsNumber; i++)
